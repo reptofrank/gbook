@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Conference;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
@@ -123,5 +124,10 @@ class Comment
         $this->photoFilename = $photoFilename;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->getEmail();
     }
 }
